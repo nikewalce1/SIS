@@ -1,5 +1,8 @@
 import random
-
+from colorama import init
+init()
+from colorama import Fore, Back, Style
+import os
 
 def check_choice(letter):
     check_letter = letter.replace('.', '')
@@ -7,440 +10,189 @@ def check_choice(letter):
 
 def Help():
     return "--------Введите номер ответа, который Вы считаете правильным, чтобы продолжить тестирование.--------" \
-           "\n--------Введите exit, для выхода из программы.------------------------------------------------------" \
-           "\n--------Введите start, для того, чтобы начать сначала.----------------------------------------------"
+           "\n --------Введите exit, для выхода из программы.------------------------------------------------------" \
+           "\n --------Введите start, для того, чтобы начать сначала.----------------------------------------------"
 
 def start():
-    number = random.randint(1, 10)
-    result = 0
-    if number == 1:
-        result += question_1()
-        if result == 3:
-            start()
-        elif result == 4:
-            exit()
-    elif number == 2:
-        result += question_2()
-        if result == 3:
-            start()
-        elif result == 4:
-            exit()
-    elif number == 3:
-        result += question_3()
-        if result == 3:
-            start()
-        elif result == 4:
-            exit()
-    elif number == 4:
-        result += question_4()
-        if result == 3:
-            start()
-        elif result == 4:
-            exit()
-    elif number == 5:
-        result += question_5()
-        if result == 3:
-            start()
-        elif result == 4:
-            exit()
-    elif number == 6:
-        result += question_6()
-        if result == 3:
-            start()
-        elif result == 4:
-            exit()
-    elif number == 7:
-        result += question_7()
-        if result == 3:
-            start()
-        elif result == 4:
-            exit()
-    elif number == 8:
-        result += question_8()
-        if result == 3:
-            start()
-        elif result == 4:
-            exit()
-    elif number == 9:
-        result += question_9()
-        if result == 3:
-            start()
-        elif result == 4:
-            exit()
-    elif number == 10:
-        result += question_10()
-        if result == 3:
-            start()
-        elif result == 4:
-            exit()
-    return number, result
+
+    Ingredients = "\n........................400г. творога (9% жирности)" \
+                  "\n........................1шт. яйцо" \
+                  "\n........................3 ст.л. мука(и дополнительно для панировки)" \
+                  "\n........................3 ст.л. сахара" \
+                  "\n........................3-4 ст.л. подсолнечного масла для жарки" \
+                  "\n........................1 щепотка соли" \
+                  "\n........................10 г. ваниального сахара\n"
+
+    print(Fore.GREEN,"\n----------------------------------------------------------Ингредиенты-----------------------------------------------------------------------------")
+    print(Ingredients,Fore.RESET)
+
+    result1 = input("У Вас всё присутствует? (y/n): ")
+
+    if result1 == "y":
+        question_1()
+    elif result1 == "n":
+        print(Fore.RED,"Купите и возвращайтесь!")
+        start()
+    elif result1 == "start":
+        start()
+    elif result1 == "exit":
+        exit()
+    else:
+        print(Fore.RED,"Неверный ввод!")
+        start()
+
 
 
 def exit():
     raise SystemExit
 
 def question_1():
-    question = "\nВ каком году произошло восстание декабристов в Петербурге?"
-    choice_1 = " 1. 1825+\n"
-    choice_2 = "2. 1812\n"
-    choice_3 = "3. 1819\n"
-    choice_4 = "4. 1846"
-    print(question)
-    print(choice_1,choice_2,choice_3,choice_4)
-    letter_to_check = input("Номер ответа: ")#проверять на цифры. только число, без точек и пробелов
-    if letter_to_check == "start":
-        letter = 3
-        return letter
-    elif letter_to_check == "exit":
-        letter = 4
-        return letter
+    print("Творог (400 г) переложите в небольшую стеклянную или пластиковую миску. "
+          "Добавьте щепотку соли, одно яйцо, 3 ст. л. сахара, и 10 г ванильного сахара.")
+    print("Сделано(Введите: 1)"
+          "Добавил 4 ст.л. сахара(Введите: 2)"
+          "Начать сначала(Введите: start)"
+          "Выйти из приложения(Введите: exit)")
+    result2 = input()
+    if result2 == "1":
+        question_2()
+    elif result2 == "2":
+        print("Сырники будут слаще.")
+        question_2()
+    elif result2 == "start":
+        start()
+    elif result2 == "exit":
+        exit()
     else:
-        letter = check_choice(letter_to_check)
-        if letter == 1:
-            return 1
-        elif letter == 2:
-            return 0
-        elif letter == 3:
-            return 0
-        elif letter == 4:
-            return 0
+        print("Неверный ввод! Попробуйте еще раз!")
+        question_1()
 
 def question_2():
-    question = "\nКакой из этих городов не является столицей?"
-    choice_1 = " 1. Богота\n"
-    choice_2 = "2. Панама+\n"
-    choice_3 = "3. Бишкек\n"
-    choice_4 = "4. Гаага"
-    print(question)
-    print(choice_1, choice_2, choice_3, choice_4)
-    letter_to_check = input("Номер ответа: ")#проверять на цифры. только число, без точек и пробелов
-    if letter_to_check == "start":
-        letter = 3
-        return letter
-    elif letter_to_check == "exit":
-        letter = 4
-        return letter
+    print("После того, как вы положите все ингредиенты в миску, перемешайте их до получения однородной массы. "
+          "Для этого лучше всего использовать обычную вилку, ложку или толкушку для картофеля.")
+    print("Сделано(Введите: 1)"
+          "Не однородная масса(Введите: 2)"
+          "Начать сначала(Введите: start)"
+          "Выйти из приложения(Введите: exit)")
+    result3 = input()
+    if result3 == "1":
+        question_3()
+    elif result3 == "2":
+        print("Мешайте еще!")
+        question_2()
+    elif result3 == "start":
+        start()
+    elif result3 == "exit":
+        exit()
     else:
-        letter = check_choice(letter_to_check)
-        if letter == 1:
-            return 0
-        elif letter == 2:
-            return 1
-        elif letter == 3:
-            return 0
-        elif letter == 4:
-            return 0
+        print("Неверный ввод! Попробуйте еще раз!")
+        question_2()
+
 
 def question_3():
-    question = "\nНазовите автора этих строк: “В раннем детстве верил я, что от всех болезней капель Датского короля не найти полезней”."
-    choice_1 = " 1. Илья Эренбург\n"
-    choice_2 = "2. Булат Окуджава+\n"
-    choice_3 = "3. Александр Блок\n"
-    choice_4 = "4. Иван Крылов"
-    print(question)
-    print(choice_1, choice_2, choice_3, choice_4)
-    letter_to_check = input("Номер ответа: ")#проверять на цифры. только число, без точек и пробелов
-    if letter_to_check == "start":
-        letter = 3
-        return letter
-    elif letter_to_check == "exit":
-        letter = 4
-        return letter
+    print("Творог не сильно влажный(Введите: 1)"
+          "Творог достаточно влажный(Введите: 2)"
+          "Начать сначала(Введите: start)"
+          "Выйти из приложения(Введите: exit)")
+    result4 = input()
+    if result4 == "1":
+        print("К полученной творожной смеси добавьте 3 ст. л. пшеничной муки.")
+        question_4()
+    elif result4 == "2":
+        print("К полученной творожной смеси добавьте 4 ст. л. пшеничной муки.")
+        question_4()
+    elif result4 == "start":
+        start()
+    elif result4 == "exit":
+        exit()
     else:
-        letter = check_choice(letter_to_check)
-        if letter == 1:
-            return 0
-        elif letter == 2:
-            return 1
-        elif letter == 3:
-            return 0
-        elif letter == 4:
-            return 0
+        print("Неверный ввод! Попробуйте еще раз!")
+        question_3()
 
 def question_4():
-    question = "\nКак называется энергия, сосредоточенная в основании позвоночника человека?"
-    choice_1 = " 1. Джаграт\n"
-    choice_2 = "2. Кундалини+\n"
-    choice_3 = "3. Даршана\n"
-    choice_4 = "4. Умари"
-    print(question)
-    print(choice_1, choice_2, choice_3, choice_4)
-    letter_to_check = input("Номер ответа: ")#проверять на цифры. только число, без точек и пробелов
-    if letter_to_check == "start":
-        letter = 3
-        return letter
-    elif letter_to_check == "exit":
-        letter = 4
-        return letter
+    print("Смочите руки небольшим количеством подсолнечного масла и скатайте из творожной массы небольшие шарики диаметром 3-4 см. "
+          "Приплюсните шарики руками, чтобы получились красивые небольшие сырники.")
+    print("Сделано!(Введите: 1)"
+          "Руки не смачивал\а(Введите: 2)"
+          "Начать сначала(Введите: start)"
+          "Выйти из приложения(Введите: exit)")
+    result4 = input()
+    if result4 == "1":
+        question_5()
+    elif result4 == "2":
+        print("Вся раковина будет в тесте. Так нельзя, начните сначала!")
+        start()
+    elif result4 == "start":
+        start()
+    elif result4 == "exit":
+        exit()
     else:
-        letter = check_choice(letter_to_check)
-        if letter == 1:
-            return 0
-        elif letter == 2:
-            return 1
-        elif letter == 3:
-            return 0
-        elif letter == 4:
-            return 0
+        print("Неверный ввод! Попробуйте еще раз!")
+        question_4()
 
 def question_5():
-    question = '\nКакое из этих слов написано правильно?'
-    choice_1 = " 1. Суббстанция\n"
-    choice_2 = "2. Полемика+\n"
-    choice_3 = "3. Дедактика\n"
-    choice_4 = "4. Колизия"
-    print(question)
-    print(choice_1, choice_2, choice_3, choice_4)
-    letter_to_check = input("Номер ответа: ")#проверять на цифры. только число, без точек и пробелов
-    if letter_to_check == "start":
-        letter = 3
-        return letter
-    elif letter_to_check == "exit":
-        letter = 4
-        return letter
+    print("Запанировать сырники в муке(Введите: 1)"
+          "Оставить без панировки(Введите: 2)"
+          "Начать сначала(Введите: start)"
+          "Выйти из приложения(Введите: exit)")
+    result4 = input()
+    if result4 == "1":
+        question_6()
+    elif result4 == "2":
+        question_6_1()
+    elif result4 == "start":
+        start()
+    elif result4 == "exit":
+        exit()
     else:
-        letter = check_choice(letter_to_check)
-        if letter == 1:
-            return 0
-        elif letter == 2:
-            return 1
-        elif letter == 3:
-            return 0
-        elif letter == 4:
-            return 0
+        print("Неверный ввод! Попробуйте еще раз!")
+        question_5()
 
-def question_6():
-    question = '\nВ какой стране находится древний город Эфес?'
-    choice_1 = " 1. ОАЭ\n"
-    choice_2 = "2. Египет\n"
-    choice_3 = "3. Греция\n"
-    choice_4 = "4. Турция+"
-    print(question)
-    print(choice_1, choice_2, choice_3, choice_4)
-    letter_to_check = input("Номер ответа: ")#проверять на цифры. только число, без точек и пробелов
-    if letter_to_check == "start":
-        letter = 3
-        return letter
-    elif letter_to_check == "exit":
-        letter = 4
-        return letter
+def  question_6():
+    print("Разогрейте антипригарную сковородку с 3-4 ст. л. подсолнечного масла на среднем огне. "
+          "Сковородка для сырников должна хорошо разогреться. Не уменьшайте огонь при жарке, так у вас получится идеальная прожарка. "
+          "Следите, чтобы сырники не пригорели. Для того, чтобы получить красивейшую золотистую корочку"
+          "я обжаривал сырники по 2-3 минуты с каждой стороны. Но у вас может уйти немного больше или меньше времени.")
+    print("Готово(Введите: 1)"
+          "Отошел на 5 минут(Введите: 2)"
+          "Начать сначала(Введите: start)"
+          "Выйти из приложения(Введите: exit)")
+    result4 = input()
+    if result4 == "1":
+        print("Чтобы удалить лишнее масло с готовых сырников, переложите их сначала на бумажное полотенце. Затем переложите сырники в тарелки для подачи, посыпьте немного сахарной пудрой, добавьте варенье или сметану.")
+    elif result4 == "2":
+        print("Сырники начали подгорать с одной стороны. Теперь либо отрезать лишнее, либо выбрасывать.")
+    elif result4 == "start":
+        start()
+    elif result4 == "exit":
+        exit()
     else:
-        letter = check_choice(letter_to_check)
-        if letter == 1:
-            return 0
-        elif letter == 2:
-            return 0
-        elif letter == 3:
-            return 0
-        elif letter == 4:
-            return 1
+        print("Неверный ввод! Попробуйте еще раз!")
+        question_6()
 
-def question_7():
-    question = '\nИз чего делают манку?'
-    choice_1 = " 1. Из овса\n"
-    choice_2 = "2. Из рапса\n"
-    choice_3 = "3. Из манки\n"
-    choice_4 = "4. Из пшена+"
-    print(question)
-    print(choice_1, choice_2, choice_3, choice_4)
-    letter_to_check = input("Номер ответа: ")#проверять на цифры. только число, без точек и пробелов
-    if letter_to_check == "start":
-        letter = 3
-        return letter
-    elif letter_to_check == "exit":
-        letter = 4
-        return letter
+def  question_6_1():
+    print("Разогрейте антипригарную сковородку с 3-4 ст. л. подсолнечного масла на среднем огне. "
+          "Сковородка для сырников должна хорошо разогреться. Не уменьшайте огонь при жарке, так у вас получится идеальная прожарка. "
+          "Следите, чтобы сырники не пригорели. Для того, чтобы получить красивейшую золотистую корочку"
+          "я обжаривал сырники по 2-3 минуты с каждой стороны. Но у вас может уйти немного больше или меньше времени.")
+    print("Готово(Введите: 1)"
+          "Отошел на 5 минут(Введите: 2)"
+          "Начать сначала(Введите: start)"
+          "Выйти из приложения(Введите: exit)")
+    result4 = input()
+    if result4 == "1":
+        print("Сырники развалились из-за того, что не было панировки. Теперь это каша!")
+    elif result4 == "2":
+        print("Сырник развалился и начал подгорать с одной стороны. Теперь либо отрезать лишнее, либо выбрасывать.")
+    elif result4 == "start":
+        start()
+    elif result4 == "exit":
+        exit()
     else:
-        letter = check_choice(letter_to_check)
-        if letter == 1:
-            return 0
-        elif letter == 2:
-            return 0
-        elif letter == 3:
-            return 0
-        elif letter == 4:
-            return 1
+        print("Неверный ввод! Попробуйте еще раз!")
+        question_6_1()
 
-def question_8():
-    question = '\nКак называется прямая, проходящая через вершину угла и делящая его пополам?'
-    choice_1 = " 1. Гипотенуза\n"
-    choice_2 = "2. Биссектриса+\n"
-    choice_3 = "3. Высота\n"
-    choice_4 = "4. Просто прямая"
-    print(question)
-    print(choice_1, choice_2, choice_3, choice_4)
-    letter_to_check = input("Номер ответа: ")#проверять на цифры. только число, без точек и пробелов
-    if letter_to_check == "start":
-        letter = 3
-        return letter
-    elif letter_to_check == "exit":
-        letter = 4
-        return letter
-    else:
-        letter = check_choice(letter_to_check)
-        if letter == 1:
-            return 0
-        elif letter == 2:
-            return 1
-        elif letter == 3:
-            return 0
-        elif letter == 4:
-            return 0
+print(Fore.RED, Help())
+start()
 
-def question_9():
-    question = '\nСамое глубокое в мире озеро?'
-    choice_1 = " 1. Восток\n"
-    choice_2 = "2. Каспийское море\n"
-    choice_3 = "3. Байкал+\n"
-    choice_4 = "4. Сан-Мартин"
-    print(question)
-    print(choice_1, choice_2, choice_3, choice_4)
-    letter_to_check = input("Номер ответа: ")#проверять на цифры. только число, без точек и пробелов
-    if letter_to_check == "start":
-        letter = 3
-        return letter
-    elif letter_to_check == "exit":
-        letter = 4
-        return letter
-    else:
-        letter = check_choice(letter_to_check)
-        if letter == 1:
-            return 0
-        elif letter == 2:
-            return 0
-        elif letter == 3:
-            return 1
-        elif letter == 4:
-            return 0
 
-def question_10():
-    question = '\nСколько градусов в белом вине?'
-    choice_1 = " 1. 9-12+\n"
-    choice_2 = "2. 13-16\n"
-    choice_3 = "3. 17-19\n"
-    choice_4 = "4. 5-8"
-    print(question)
-    print(choice_1, choice_2, choice_3, choice_4)
-    letter_to_check = input("Номер ответа: ") #проверять на цифры. только число, без точек и пробелов
-    if letter_to_check == "start":
-        letter = 3
-        return letter
-    elif letter_to_check == "exit":
-        letter = 4
-        return letter
-    else:
-        letter = check_choice(letter_to_check)
-        if letter == 1:
-            return 1
-        elif letter == 2:
-            return 0
-        elif letter == 3:
-            return 0
-        elif letter == 4:
-            return 0
-
-print(Help())
-number = start()
-result = number[1]
-if number[0] == 1:
-    result += question_2()
-    result += question_3()
-    result += question_4()
-    result += question_5()
-    result += question_6()
-    result += question_7()
-    result += question_8()
-    result += question_9()
-    result += question_10()
-elif number[0] == 2:
-    result += question_1()
-    result += question_3()
-    result += question_4()
-    result += question_5()
-    result += question_6()
-    result += question_7()
-    result += question_8()
-    result += question_9()
-    result += question_10()
-elif number[0] == 3:
-    result += question_1()
-    result += question_2()
-    result += question_4()
-    result += question_5()
-    result += question_6()
-    result += question_7()
-    result += question_8()
-    result += question_9()
-    result += question_10()
-elif number[0] == 4:
-    result += question_1()
-    result += question_3()
-    result += question_2()
-    result += question_5()
-    result += question_6()
-    result += question_7()
-    result += question_8()
-    result += question_9()
-    result += question_10()
-elif number[0] == 5:
-    result += question_1()
-    result += question_3()
-    result += question_4()
-    result += question_2()
-    result += question_6()
-    result += question_7()
-    result += question_8()
-    result += question_9()
-    result += question_10()
-elif number[0] == 6:
-    result += question_1()
-    result += question_3()
-    result += question_4()
-    result += question_2()
-    result += question_5()
-    result += question_7()
-    result += question_8()
-    result += question_9()
-    result += question_10()
-elif number[0] == 7:
-    result += question_1()
-    result += question_3()
-    result += question_4()
-    result += question_2()
-    result += question_5()
-    result += question_6()
-    result += question_8()
-    result += question_9()
-    result += question_10()
-elif number[0] == 8:
-    result += question_1()
-    result += question_3()
-    result += question_4()
-    result += question_2()
-    result += question_5()
-    result += question_7()
-    result += question_6()
-    result += question_9()
-    result += question_10()
-elif number[0] == 9:
-    result += question_1()
-    result += question_3()
-    result += question_4()
-    result += question_2()
-    result += question_5()
-    result += question_7()
-    result += question_8()
-    result += question_6()
-    result += question_10()
-elif number[0] == 10:
-    result += question_1()
-    result += question_3()
-    result += question_4()
-    result += question_2()
-    result += question_5()
-    result += question_7()
-    result += question_8()
-    result += question_9()
-    result += question_6()
-
-print(result)
