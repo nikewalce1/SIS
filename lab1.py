@@ -11,27 +11,69 @@ def Help():
            "\n--------Введите start, для того, чтобы начать сначала.----------------------------------------------"
 
 def start():
-    number = random.randint(1,10)
+    number = random.randint(1, 10)
+    result = 0
     if number == 1:
-        print(question_1())
+        result += question_1()
+        if result == 3:
+            start()
+        elif result == 4:
+            exit()
     elif number == 2:
-        print(question_2())
+        result += question_2()
+        if result == 3:
+            start()
+        elif result == 4:
+            exit()
     elif number == 3:
-        print(question_3())
+        result += question_3()
+        if result == 3:
+            start()
+        elif result == 4:
+            exit()
     elif number == 4:
-        print(question_4())
+        result += question_4()
+        if result == 3:
+            start()
+        elif result == 4:
+            exit()
     elif number == 5:
-        print(question_5())
+        result += question_5()
+        if result == 3:
+            start()
+        elif result == 4:
+            exit()
     elif number == 6:
-        question_6()
+        result += question_6()
+        if result == 3:
+            start()
+        elif result == 4:
+            exit()
     elif number == 7:
-        question_7()
+        result += question_7()
+        if result == 3:
+            start()
+        elif result == 4:
+            exit()
     elif number == 8:
-        question_8()
+        result += question_8()
+        if result == 3:
+            start()
+        elif result == 4:
+            exit()
     elif number == 9:
-        question_9()
+        result += question_9()
+        if result == 3:
+            start()
+        elif result == 4:
+            exit()
     elif number == 10:
-        question_10()
+        result += question_10()
+        if result == 3:
+            start()
+        elif result == 4:
+            exit()
+    return number, result
 
 
 def exit():
@@ -45,16 +87,23 @@ def question_1():
     choice_4 = "4. 1846"
     print(question)
     print(choice_1,choice_2,choice_3,choice_4)
-    letter_to_check = input("Номер ответа: ")
-    letter = check_choice(letter_to_check)
-    if letter == 1:
-        return 1
-    elif letter == 2:
-        return 0
-    elif letter == 3:
-        return 0
-    elif letter == 4:
-        return 0
+    letter_to_check = input("Номер ответа: ")#проверять на цифры. только число, без точек и пробелов
+    if letter_to_check == "start":
+        letter = 3
+        return letter
+    elif letter_to_check == "exit":
+        letter = 4
+        return letter
+    else:
+        letter = check_choice(letter_to_check)
+        if letter == 1:
+            return 1
+        elif letter == 2:
+            return 0
+        elif letter == 3:
+            return 0
+        elif letter == 4:
+            return 0
 
 def question_2():
     question = "\nКакой из этих городов не является столицей?"
@@ -64,17 +113,23 @@ def question_2():
     choice_4 = "4. Гаага"
     print(question)
     print(choice_1, choice_2, choice_3, choice_4)
-    letter_to_check = input("Номер ответа: ")
-    letter = check_choice(letter_to_check)
-    if letter == 1:
-        return 0
-    elif letter == 2:
-        return 1
-    elif letter == 3:
-        return 0
-    elif letter == 4:
-        return 0
-    return True
+    letter_to_check = input("Номер ответа: ")#проверять на цифры. только число, без точек и пробелов
+    if letter_to_check == "start":
+        letter = 3
+        return letter
+    elif letter_to_check == "exit":
+        letter = 4
+        return letter
+    else:
+        letter = check_choice(letter_to_check)
+        if letter == 1:
+            return 0
+        elif letter == 2:
+            return 1
+        elif letter == 3:
+            return 0
+        elif letter == 4:
+            return 0
 
 def question_3():
     question = "\nНазовите автора этих строк: “В раннем детстве верил я, что от всех болезней капель Датского короля не найти полезней”."
@@ -84,17 +139,23 @@ def question_3():
     choice_4 = "4. Иван Крылов"
     print(question)
     print(choice_1, choice_2, choice_3, choice_4)
-    letter_to_check = input("Номер ответа: ")
-    letter = check_choice(letter_to_check)
-    if letter == 1:
-        return 0
-    elif letter == 2:
-        return 1
-    elif letter == 3:
-        return 0
-    elif letter == 4:
-        return 0
-    return True
+    letter_to_check = input("Номер ответа: ")#проверять на цифры. только число, без точек и пробелов
+    if letter_to_check == "start":
+        letter = 3
+        return letter
+    elif letter_to_check == "exit":
+        letter = 4
+        return letter
+    else:
+        letter = check_choice(letter_to_check)
+        if letter == 1:
+            return 0
+        elif letter == 2:
+            return 1
+        elif letter == 3:
+            return 0
+        elif letter == 4:
+            return 0
 
 def question_4():
     question = "\nКак называется энергия, сосредоточенная в основании позвоночника человека?"
@@ -104,17 +165,23 @@ def question_4():
     choice_4 = "4. Умари"
     print(question)
     print(choice_1, choice_2, choice_3, choice_4)
-    letter_to_check = input("Номер ответа: ")
-    letter = check_choice(letter_to_check)
-    if letter == 1:
-        return 0
-    elif letter == 2:
-        return 1
-    elif letter == 3:
-        return 0
-    elif letter == 4:
-        return 0
-    return True
+    letter_to_check = input("Номер ответа: ")#проверять на цифры. только число, без точек и пробелов
+    if letter_to_check == "start":
+        letter = 3
+        return letter
+    elif letter_to_check == "exit":
+        letter = 4
+        return letter
+    else:
+        letter = check_choice(letter_to_check)
+        if letter == 1:
+            return 0
+        elif letter == 2:
+            return 1
+        elif letter == 3:
+            return 0
+        elif letter == 4:
+            return 0
 
 def question_5():
     question = '\nКакое из этих слов написано правильно?'
@@ -124,17 +191,23 @@ def question_5():
     choice_4 = "4. Колизия"
     print(question)
     print(choice_1, choice_2, choice_3, choice_4)
-    letter_to_check = input("Номер ответа: ")
-    letter = check_choice(letter_to_check)
-    if letter == 1:
-        return 0
-    elif letter == 2:
-        return 1
-    elif letter == 3:
-        return 0
-    elif letter == 4:
-        return 0
-    return True
+    letter_to_check = input("Номер ответа: ")#проверять на цифры. только число, без точек и пробелов
+    if letter_to_check == "start":
+        letter = 3
+        return letter
+    elif letter_to_check == "exit":
+        letter = 4
+        return letter
+    else:
+        letter = check_choice(letter_to_check)
+        if letter == 1:
+            return 0
+        elif letter == 2:
+            return 1
+        elif letter == 3:
+            return 0
+        elif letter == 4:
+            return 0
 
 def question_6():
     question = '\nВ какой стране находится древний город Эфес?'
@@ -144,17 +217,23 @@ def question_6():
     choice_4 = "4. Турция+"
     print(question)
     print(choice_1, choice_2, choice_3, choice_4)
-    letter_to_check = input("Номер ответа: ")
-    letter = check_choice(letter_to_check)
-    if letter == 1:
-        return 0
-    elif letter == 2:
-        return 0
-    elif letter == 3:
-        return 0
-    elif letter == 4:
-        return 1
-    return True
+    letter_to_check = input("Номер ответа: ")#проверять на цифры. только число, без точек и пробелов
+    if letter_to_check == "start":
+        letter = 3
+        return letter
+    elif letter_to_check == "exit":
+        letter = 4
+        return letter
+    else:
+        letter = check_choice(letter_to_check)
+        if letter == 1:
+            return 0
+        elif letter == 2:
+            return 0
+        elif letter == 3:
+            return 0
+        elif letter == 4:
+            return 1
 
 def question_7():
     question = '\nИз чего делают манку?'
@@ -164,17 +243,23 @@ def question_7():
     choice_4 = "4. Из пшена+"
     print(question)
     print(choice_1, choice_2, choice_3, choice_4)
-    letter_to_check = input("Номер ответа: ")
-    letter = check_choice(letter_to_check)
-    if letter == 1:
-        return 0
-    elif letter == 2:
-        return 0
-    elif letter == 3:
-        return 0
-    elif letter == 4:
-        return 1
-    return True
+    letter_to_check = input("Номер ответа: ")#проверять на цифры. только число, без точек и пробелов
+    if letter_to_check == "start":
+        letter = 3
+        return letter
+    elif letter_to_check == "exit":
+        letter = 4
+        return letter
+    else:
+        letter = check_choice(letter_to_check)
+        if letter == 1:
+            return 0
+        elif letter == 2:
+            return 0
+        elif letter == 3:
+            return 0
+        elif letter == 4:
+            return 1
 
 def question_8():
     question = '\nКак называется прямая, проходящая через вершину угла и делящая его пополам?'
@@ -184,17 +269,23 @@ def question_8():
     choice_4 = "4. Просто прямая"
     print(question)
     print(choice_1, choice_2, choice_3, choice_4)
-    letter_to_check = input("Номер ответа: ")
-    letter = check_choice(letter_to_check)
-    if letter == 1:
-        return 0
-    elif letter == 2:
-        return 1
-    elif letter == 3:
-        return 0
-    elif letter == 4:
-        return 0
-    return True
+    letter_to_check = input("Номер ответа: ")#проверять на цифры. только число, без точек и пробелов
+    if letter_to_check == "start":
+        letter = 3
+        return letter
+    elif letter_to_check == "exit":
+        letter = 4
+        return letter
+    else:
+        letter = check_choice(letter_to_check)
+        if letter == 1:
+            return 0
+        elif letter == 2:
+            return 1
+        elif letter == 3:
+            return 0
+        elif letter == 4:
+            return 0
 
 def question_9():
     question = '\nСамое глубокое в мире озеро?'
@@ -204,17 +295,23 @@ def question_9():
     choice_4 = "4. Сан-Мартин"
     print(question)
     print(choice_1, choice_2, choice_3, choice_4)
-    letter_to_check = input("Номер ответа: ")
-    letter = check_choice(letter_to_check)
-    if letter == 1:
-        return 0
-    elif letter == 2:
-        return 0
-    elif letter == 3:
-        return 1
-    elif letter == 4:
-        return 0
-    return True
+    letter_to_check = input("Номер ответа: ")#проверять на цифры. только число, без точек и пробелов
+    if letter_to_check == "start":
+        letter = 3
+        return letter
+    elif letter_to_check == "exit":
+        letter = 4
+        return letter
+    else:
+        letter = check_choice(letter_to_check)
+        if letter == 1:
+            return 0
+        elif letter == 2:
+            return 0
+        elif letter == 3:
+            return 1
+        elif letter == 4:
+            return 0
 
 def question_10():
     question = '\nСколько градусов в белом вине?'
@@ -224,17 +321,126 @@ def question_10():
     choice_4 = "4. 5-8"
     print(question)
     print(choice_1, choice_2, choice_3, choice_4)
-    letter_to_check = input("Номер ответа: ")
-    letter = check_choice(letter_to_check)
-    if letter == 1:
-        return 1
-    elif letter == 2:
-        return 0
-    elif letter == 3:
-        return 0
-    elif letter == 4:
-        return 0
-    return True
+    letter_to_check = input("Номер ответа: ") #проверять на цифры. только число, без точек и пробелов
+    if letter_to_check == "start":
+        letter = 3
+        return letter
+    elif letter_to_check == "exit":
+        letter = 4
+        return letter
+    else:
+        letter = check_choice(letter_to_check)
+        if letter == 1:
+            return 1
+        elif letter == 2:
+            return 0
+        elif letter == 3:
+            return 0
+        elif letter == 4:
+            return 0
 
 print(Help())
-start()
+number = start()
+result = number[1]
+if number[0] == 1:
+    result += question_2()
+    result += question_3()
+    result += question_4()
+    result += question_5()
+    result += question_6()
+    result += question_7()
+    result += question_8()
+    result += question_9()
+    result += question_10()
+elif number[0] == 2:
+    result += question_1()
+    result += question_3()
+    result += question_4()
+    result += question_5()
+    result += question_6()
+    result += question_7()
+    result += question_8()
+    result += question_9()
+    result += question_10()
+elif number[0] == 3:
+    result += question_1()
+    result += question_2()
+    result += question_4()
+    result += question_5()
+    result += question_6()
+    result += question_7()
+    result += question_8()
+    result += question_9()
+    result += question_10()
+elif number[0] == 4:
+    result += question_1()
+    result += question_3()
+    result += question_2()
+    result += question_5()
+    result += question_6()
+    result += question_7()
+    result += question_8()
+    result += question_9()
+    result += question_10()
+elif number[0] == 5:
+    result += question_1()
+    result += question_3()
+    result += question_4()
+    result += question_2()
+    result += question_6()
+    result += question_7()
+    result += question_8()
+    result += question_9()
+    result += question_10()
+elif number[0] == 6:
+    result += question_1()
+    result += question_3()
+    result += question_4()
+    result += question_2()
+    result += question_5()
+    result += question_7()
+    result += question_8()
+    result += question_9()
+    result += question_10()
+elif number[0] == 7:
+    result += question_1()
+    result += question_3()
+    result += question_4()
+    result += question_2()
+    result += question_5()
+    result += question_6()
+    result += question_8()
+    result += question_9()
+    result += question_10()
+elif number[0] == 8:
+    result += question_1()
+    result += question_3()
+    result += question_4()
+    result += question_2()
+    result += question_5()
+    result += question_7()
+    result += question_6()
+    result += question_9()
+    result += question_10()
+elif number[0] == 9:
+    result += question_1()
+    result += question_3()
+    result += question_4()
+    result += question_2()
+    result += question_5()
+    result += question_7()
+    result += question_8()
+    result += question_6()
+    result += question_10()
+elif number[0] == 10:
+    result += question_1()
+    result += question_3()
+    result += question_4()
+    result += question_2()
+    result += question_5()
+    result += question_7()
+    result += question_8()
+    result += question_9()
+    result += question_6()
+
+print(result)
