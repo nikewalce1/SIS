@@ -1,8 +1,6 @@
-import random
 from colorama import init
 init()
 from colorama import Fore, Back, Style
-import os
 
 def check_choice(letter):
     check_letter = letter.replace('.', '')
@@ -15,24 +13,74 @@ def Help():
 
 def start():
 
-    Ingredients = "\n........................400г. творога (9% жирности)" \
-                  "\n........................1шт. яйцо" \
-                  "\n........................3 ст.л. мука(и дополнительно для панировки)" \
-                  "\n........................3 ст.л. сахара" \
-                  "\n........................3-4 ст.л. подсолнечного масла для жарки" \
-                  "\n........................1 щепотка соли" \
-                  "\n........................10 г. ваниального сахара\n"
+    question1 = "Есть ли изображение на экране?(y/n)"
+    question2 = "Подключены ли к сети монитор и системный блок?(y/n)"
+    question3 = "Работает ли системный блок?(y/n)"
+    question4 = "Исправен ли блок питания?(y/n)"
+    question5 = "Подключен ли блок питания к материнской плате?(y/n)"
+    question6 = "Подключен ли монитор к системному блоку?(y/n)"
+    question7 = "Исправен ли монитор?(y/n)"
+    question8 = "Исправна ли видеокарта?(y/n)"
+    question9 = "Загружается ли операционная система?(y/n)"
+    question10 = "Подключен ли жесткий диск к материнской плате?(y/n)"
+    question11 = "Есть ли возможность войти в настройку BIOS?(y/n)"
+    question12 = "Отображатся ли жесткий диск в BIOS?(y/n)"
+    question13 = "Работают ли устройства ввода-вывода?(y/n)"
+    question14 = "Работают ли переферийные устройства?(y/n)"
 
-    print(Fore.GREEN,"\n----------------------------------------------------------Ингредиенты-----------------------------------------------------------------------------")
-    print(Ingredients,Fore.RESET)
+    answer4 = "Компьютер исправен"
+    answer3 = "Требуется замена переферийного устройства"
+    answer2 = "Требуется замена устройства ввода-вывода"
+    answer9 = "Требуется переустановка операционной системы"
+    answer8 = "Необходимо заменить жесткий диск"
+    answer7 = "Требуется очистить CMOS"
 
-    result1 = input("У Вас всё присутствует? (y/n): ")
+    answer5 = "Требуется подключить жесткий диск к материнской плате"
+    answer1 = "Требуется подключить к сети монитор и системный блок"
+    answer6 = "Требуется замена блока питания"
+    answer10 = "Требуется подключить блок питания"
+    answer11 = "Требуется подключить монитор к системному блоку"
+    answer12 = "Требуется замена монитора"
+    answer13 = "Требуется замена видеокарты"
+    answer14 = "Требуется замена материнской платы"
 
+    print(question1)
+    result1 = input()
+    count = 0
     if result1 == "y":
-        question_1()
+        count = count + 1
+        count = count + line1(question14,question13,question9,question10,question11,question12)
+        if count == 2:
+            print(answer2)
+        elif count == 3:
+            print(answer3)
+        elif count == 4:
+            print(answer4)
+        elif count == 5:
+            print(answer5)
+        elif count == 7:
+            print(answer7)
+        elif count ==8:
+            print(answer8)
+        elif count == 9:
+            print(answer9)
     elif result1 == "n":
-        print(Fore.RED,"Купите и возвращайтесь!")
-        start()
+        count = count + 0
+        count = count + line2(question2,question3,question4,question5,question6,question7,question8)
+        if count == 1:
+            print(answer1)
+        elif count == 6:
+            print(answer6)
+        elif count == 10:
+            print(answer10)
+        elif count == 14:
+            print(answer14)
+        elif count == 13:
+            print(answer13)
+        elif count == 12:
+            print(answer12)
+        elif count == 11:
+            print(answer11)
     elif result1 == "start":
         start()
     elif result1 == "exit":
@@ -43,154 +91,214 @@ def start():
 
 
 
+
+def line1(question14,question13,question9,question10,question11,question12):
+    # -----------------------------------------------------
+    print(question9)
+    result1 = input()
+    count = 0
+    if result1 == "y":
+        count += 1
+        # -----------------------------------------------------
+        print(question13)
+        result2 = input()
+        if result2 == "y":
+            count += 1
+            # -----------------------------------------------------
+            print(question14)
+            result3 = input()
+            if result3 == "y":
+                count += 1
+                return count
+            elif result3 == "n":
+                count += 0
+                return count
+            if result3 == "start":
+                start()
+            elif result3 == "exit":
+                exit()
+            else:
+                print(Fore.RED, "Неверный ввод!")
+                start()
+        elif result2 == "n":
+            count += 0
+            return count
+        elif result2 == "start":
+            start()
+        elif result2 == "exit":
+            exit()
+        else:
+            print(Fore.RED, "Неверный ввод!")
+            start()
+    elif result1 == "n":
+        count += 2
+        # -----------------------------------------------------
+        print(question10)
+        result4 = input()
+        if result4 == "y":
+            count += 2
+            # -----------------------------------------------------
+            print(question11)
+            result5 = input()
+            if result5 == "y":
+                count += 2
+                # -----------------------------------------------------
+                print(question12)
+                result6 = input()
+                if result6 == "y":
+                    count += 2
+                    return count
+                elif result6 == "n":
+                    count += 1
+                    return count
+                elif result6 == "start":
+                    start()
+                elif result6 == "exit":
+                    exit()
+                else:
+                    print(Fore.RED, "Неверный ввод!")
+                    start()
+            elif result5 == "n":
+                count += 2
+                return count
+            elif result5 == "start":
+                start()
+            elif result5 == "exit":
+                exit()
+            else:
+                print(Fore.RED, "Неверный ввод!")
+                start()
+        elif result4 == "n":
+            count += 2
+            return count
+        elif result4 == "start":
+            start()
+        elif result4 == "exit":
+            exit()
+        else:
+            print(Fore.RED, "Неверный ввод!")
+            start()
+    if result1 == "start":
+        start()
+    elif result1 == "exit":
+        exit()
+    else:
+        print(Fore.RED, "Неверный ввод!")
+        start()
+
+def line2(question2,question3,question4,question5,question6,question7,question8):
+    # -----------------------------------------------------
+    print(question2)
+    result1 = input()
+    count = 0
+    if result1 == "y":
+        count += 2
+        # -----------------------------------------------------
+        print(question3)
+        result2 = input()
+        if result2 == "y":
+            count += 2
+            # -----------------------------------------------------
+            print(question6)
+            result3 = input()
+            if result3 == "y":
+                count += 2
+                # -----------------------------------------------------
+                print(question7)
+                result4 = input()
+                if result4 == "y":
+                    count += 2
+                    # -----------------------------------------------------
+                    print(question8)
+                    result5 = input()
+                    if result5 == "y":
+                        count += 6
+                        return count
+                    elif result5 == "n":
+                        count += 5
+                        return count
+                    elif result5 == "start":
+                        start()
+                    elif result5 == "exit":
+                        exit()
+                    else:
+                        print(Fore.RED, "Неверный ввод!")
+                        start()
+                elif result4 == "n":
+                    count += 6
+                    return count
+                elif result4 == "start":
+                    start()
+                elif result4 == "exit":
+                    exit()
+                else:
+                    print(Fore.RED, "Неверный ввод!")
+                    start()
+            elif result3 == "n":
+                count += 7
+                return count
+            elif result3 == "start":
+                start()
+            elif result3 == "exit":
+                exit()
+            else:
+                print(Fore.RED, "Неверный ввод!")
+                start()
+        elif result2 == "n":
+            count += 2
+            # -----------------------------------------------------
+            print(question4)
+            result6 = input()
+            if result6 == "y":
+                count += 2
+                # -----------------------------------------------------
+                print(question5)
+                result7 = input()
+                if result7 == "y":
+                    count += 8
+                    return count
+                elif result7 == "n":
+                    count += 4
+                    return count
+                elif result7 == "start":
+                    start()
+                elif result7 == "exit":
+                    exit()
+                else:
+                    print(Fore.RED, "Неверный ввод!")
+                    start()
+            elif result6 == "n":
+                count += 2
+                return count
+            elif result6 == "start":
+                start()
+            elif result6 == "exit":
+                exit()
+            else:
+                print(Fore.RED, "Неверный ввод!")
+                start()
+        elif result2 == "start":
+            start()
+        elif result2 == "exit":
+            exit()
+        else:
+            print(Fore.RED, "Неверный ввод!")
+            start()
+    elif result1 == "n":
+        count += 1
+        return count
+    elif result1 == "start":
+        start()
+    elif result1 == "exit":
+        exit()
+    else:
+        print(Fore.RED, "Неверный ввод!")
+        start()
+
+
 def exit():
     raise SystemExit
 
-def question_1():
-    print("Творог (400 г) переложите в небольшую стеклянную или пластиковую миску. "
-          "Добавьте щепотку соли, одно яйцо, 3 ст. л. сахара, и 10 г ванильного сахара.")
-    print("Сделано(Введите: 1)"
-          "Добавил 4 ст.л. сахара(Введите: 2)"
-          "Начать сначала(Введите: start)"
-          "Выйти из приложения(Введите: exit)")
-    result2 = input()
-    if result2 == "1":
-        question_2()
-    elif result2 == "2":
-        print("Сырники будут слаще.")
-        question_2()
-    elif result2 == "start":
-        start()
-    elif result2 == "exit":
-        exit()
-    else:
-        print("Неверный ввод! Попробуйте еще раз!")
-        question_1()
-
-def question_2():
-    print("После того, как вы положите все ингредиенты в миску, перемешайте их до получения однородной массы. "
-          "Для этого лучше всего использовать обычную вилку, ложку или толкушку для картофеля.")
-    print("Сделано(Введите: 1)"
-          "Не однородная масса(Введите: 2)"
-          "Начать сначала(Введите: start)"
-          "Выйти из приложения(Введите: exit)")
-    result3 = input()
-    if result3 == "1":
-        question_3()
-    elif result3 == "2":
-        print("Мешайте еще!")
-        question_2()
-    elif result3 == "start":
-        start()
-    elif result3 == "exit":
-        exit()
-    else:
-        print("Неверный ввод! Попробуйте еще раз!")
-        question_2()
-
-
-def question_3():
-    print("Творог не сильно влажный(Введите: 1)"
-          "Творог достаточно влажный(Введите: 2)"
-          "Начать сначала(Введите: start)"
-          "Выйти из приложения(Введите: exit)")
-    result4 = input()
-    if result4 == "1":
-        print("К полученной творожной смеси добавьте 3 ст. л. пшеничной муки.")
-        question_4()
-    elif result4 == "2":
-        print("К полученной творожной смеси добавьте 4 ст. л. пшеничной муки.")
-        question_4()
-    elif result4 == "start":
-        start()
-    elif result4 == "exit":
-        exit()
-    else:
-        print("Неверный ввод! Попробуйте еще раз!")
-        question_3()
-
-def question_4():
-    print("Смочите руки небольшим количеством подсолнечного масла и скатайте из творожной массы небольшие шарики диаметром 3-4 см. "
-          "Приплюсните шарики руками, чтобы получились красивые небольшие сырники.")
-    print("Сделано!(Введите: 1)"
-          "Руки не смачивал\а(Введите: 2)"
-          "Начать сначала(Введите: start)"
-          "Выйти из приложения(Введите: exit)")
-    result4 = input()
-    if result4 == "1":
-        question_5()
-    elif result4 == "2":
-        print("Вся раковина будет в тесте. Так нельзя, начните сначала!")
-        start()
-    elif result4 == "start":
-        start()
-    elif result4 == "exit":
-        exit()
-    else:
-        print("Неверный ввод! Попробуйте еще раз!")
-        question_4()
-
-def question_5():
-    print("Запанировать сырники в муке(Введите: 1)"
-          "Оставить без панировки(Введите: 2)"
-          "Начать сначала(Введите: start)"
-          "Выйти из приложения(Введите: exit)")
-    result4 = input()
-    if result4 == "1":
-        question_6()
-    elif result4 == "2":
-        question_6_1()
-    elif result4 == "start":
-        start()
-    elif result4 == "exit":
-        exit()
-    else:
-        print("Неверный ввод! Попробуйте еще раз!")
-        question_5()
-
-def  question_6():
-    print("Разогрейте антипригарную сковородку с 3-4 ст. л. подсолнечного масла на среднем огне. "
-          "Сковородка для сырников должна хорошо разогреться. Не уменьшайте огонь при жарке, так у вас получится идеальная прожарка. "
-          "Следите, чтобы сырники не пригорели. Для того, чтобы получить красивейшую золотистую корочку"
-          "я обжаривал сырники по 2-3 минуты с каждой стороны. Но у вас может уйти немного больше или меньше времени.")
-    print("Готово(Введите: 1)"
-          "Отошел на 5 минут(Введите: 2)"
-          "Начать сначала(Введите: start)"
-          "Выйти из приложения(Введите: exit)")
-    result4 = input()
-    if result4 == "1":
-        print("Чтобы удалить лишнее масло с готовых сырников, переложите их сначала на бумажное полотенце. Затем переложите сырники в тарелки для подачи, посыпьте немного сахарной пудрой, добавьте варенье или сметану.")
-    elif result4 == "2":
-        print("Сырники начали подгорать с одной стороны. Теперь либо отрезать лишнее, либо выбрасывать.")
-    elif result4 == "start":
-        start()
-    elif result4 == "exit":
-        exit()
-    else:
-        print("Неверный ввод! Попробуйте еще раз!")
-        question_6()
-
-def  question_6_1():
-    print("Разогрейте антипригарную сковородку с 3-4 ст. л. подсолнечного масла на среднем огне. "
-          "Сковородка для сырников должна хорошо разогреться. Не уменьшайте огонь при жарке, так у вас получится идеальная прожарка. "
-          "Следите, чтобы сырники не пригорели. Для того, чтобы получить красивейшую золотистую корочку"
-          "я обжаривал сырники по 2-3 минуты с каждой стороны. Но у вас может уйти немного больше или меньше времени.")
-    print("Готово(Введите: 1)"
-          "Отошел на 5 минут(Введите: 2)"
-          "Начать сначала(Введите: start)"
-          "Выйти из приложения(Введите: exit)")
-    result4 = input()
-    if result4 == "1":
-        print("Сырники развалились из-за того, что не было панировки. Теперь это каша!")
-    elif result4 == "2":
-        print("Сырник развалился и начал подгорать с одной стороны. Теперь либо отрезать лишнее, либо выбрасывать.")
-    elif result4 == "start":
-        start()
-    elif result4 == "exit":
-        exit()
-    else:
-        print("Неверный ввод! Попробуйте еще раз!")
-        question_6_1()
 
 print(Fore.RED, Help())
 start()
